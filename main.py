@@ -43,9 +43,10 @@ def isvalid_Last_name(Last_name):
 def isvalid_email(email):
         '''
         validation of the email address
+        It follow all the sample email id
         '''
         try:
-            pattern="^[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*@[a-zA-Z]+(\\.[a-zA-Z0-9]+)+$"
+            pattern="^[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)*@[a-zA-Z]+(\\.[a-zA-Z0-9]{2,}){1,2}$"
             mat=re.match(pattern,email)
             if not mat:
                 raise ValueError("Invalid Email")
@@ -72,6 +73,7 @@ def isvalid_password(password):
         Validate password minimum 8 character
         Should have atleast 1 Uppercase Letter
         Should have atleast 1 Numeric Value
+        should have exactly 1 special character
         
         '''
         try:
