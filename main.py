@@ -2,13 +2,14 @@ import re
 class User:
     '''
     Add valid User'''
-    def __init__(self,First_name,Last_name,email):
+    def __init__(self,First_name,Last_name,email,phone_no):
         self.First_name=First_name
         self.Last_name=Last_name
         self.email=email
+        self.phone_no=phone_no
     
     def __str__(self):
-        return f"{self.First_name} {self.Last_name} {self.email}"
+        return f"{self.First_name} {self.Last_name} {self.email} {self.phone_no}"
     
 
 def isvalid_first_name(First_name):
@@ -50,6 +51,21 @@ def isvalid_email(email):
             return True
         except ValueError as e:
             print(e)
+
+def isvalid_Phone_no(phone_no):
+        '''
+        validation of the Phone Number
+        '''
+        try:
+            pattern=r"^\d{1,2}\s\d{10}$"
+            mat=re.match(pattern,phone_no)
+            if not mat:
+                raise ValueError("Invalid phone_no")
+            return True
+        except ValueError as e:
+            print(e)
+
+
      
 
     
@@ -59,11 +75,13 @@ def main():
         First_name=input("Enter the first name:")
         Last_name=input("Enter the Last name:")
         email=input("Enter the email:")
+        phone_no=input("Enter the phone no.")
         valid_first=isvalid_first_name(First_name)
         valid_Last=isvalid_Last_name(Last_name)
         valid_email=isvalid_email(email)
-        if(valid_first==True and valid_Last==True and valid_email):
-            user=User(First_name,Last_name,email)
+        valid_phone_no=isvalid_Phone_no(phone_no)
+        if(valid_first==True and valid_Last==True and valid_email==True and valid_phone_no==True ) :
+            user=User(First_name,Last_name,email,phone_no)
             print(user)
             break
 
