@@ -46,7 +46,7 @@ def isvalid_email(email):
         It follow all the sample email id
         '''
         try:
-            pattern="^[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)*@[a-zA-Z]+(\\.[a-zA-Z0-9]{2,}){1,2}$"
+            pattern="^[a-zA-Z0-9][a-zA-Z0-9-_+]+(\\.[a-zA-Z0-9_-]+)*@[a-zA-Z0-9]+(\\.[a-zA-Z0-9]{2,}){1,2}$"
             mat=re.match(pattern,email)
             if not mat:
                 raise ValueError("Invalid Email")
