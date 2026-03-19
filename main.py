@@ -71,14 +71,19 @@ def isvalid_password(password):
         '''
         Validate password minimum 8 character
         Should have atleast 1 Uppercase Letter
-        Should have atleast 1 nUMERIC Value
+        Should have atleast 1 Numeric Value
+        
         '''
         try:
-            pattern="(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9+&^%$#@*]{8,}"
-            mat=re.match(pattern,password)
-            if not mat:
-                raise ValueError("Invalid password")
-            return True
+            pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[+&^%$#@*])[a-zA-Z0-9+&^%$#@*]{8,}"
+            k=re.findall("[+&^%$#@*]",password)
+            if(len(k)==1):
+                mat=re.match(pattern,password)
+                if not mat:
+                    raise ValueError("Invalid password")
+                return True
+            else:
+                  raise ValueError("Invalid password")
         except ValueError as e:
             print(e)
 
