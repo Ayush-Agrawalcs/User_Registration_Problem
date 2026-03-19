@@ -67,8 +67,6 @@ This project demonstrates how to use **regex in Python** for real-world form val
 
 ## 📌 Future Improvements
 
-* Add GUI (Tkinter / Web interface)
-* Store validated users in a database
 * Add unit testing
 
 ---
