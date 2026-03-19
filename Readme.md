@@ -20,6 +20,8 @@ The **User Registration Validation System** is a Python-based application that v
 
 ```
 User_Registration_Problem/
+|──Pytest
+|    └── test.py 
 │── main.py
 └── README.md
 ```
@@ -42,6 +44,7 @@ python main.py
 
 * **Python**
 * **Regular Expressions (Regex)**
+* **Pytesting**
 
 ---
 
