@@ -70,9 +70,10 @@ def isvalid_Phone_no(phone_no):
 def isvalid_password(password):
         '''
         Validate password minimum 8 character
+        Should have atleast 1 Uppercase Letter
         '''
         try:
-            pattern=r"^[a-zA-Z0-9]{8,}"
+            pattern="(?=.*[A-Z])[a-zA-Z0-9+&^%$#@*]{8,}"
             mat=re.match(pattern,password)
             if not mat:
                 raise ValueError("Invalid password")
