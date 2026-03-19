@@ -2,12 +2,13 @@ import re
 class User:
     '''
     Add valid User'''
-    def __init__(self,First_name,Last_name):
+    def __init__(self,First_name,Last_name,email):
         self.First_name=First_name
         self.Last_name=Last_name
+        self.email=email
     
     def __str__(self):
-        return f"{self.First_name} {self.Last_name}"
+        return f"{self.First_name} {self.Last_name} {self.email}"
     
 
 def isvalid_first_name(First_name):
@@ -37,20 +38,37 @@ def isvalid_Last_name(Last_name):
         except ValueError as e:
             print(e)
 
+def isvalid_email(email):
+        '''
+        validation of the email address
+        '''
+        try:
+            pattern="^[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*@[a-zA-Z]+(\\.[a-zA-Z0-9]+)+$"
+            mat=re.match(pattern,email)
+            if not mat:
+                raise ValueError("Invalid Email")
+            return True
+        except ValueError as e:
+            print(e)
+     
+
     
 
 def main():
     while(True):
         First_name=input("Enter the first name:")
         Last_name=input("Enter the Last name:")
+        email=input("Enter the email:")
         valid_first=isvalid_first_name(First_name)
         valid_Last=isvalid_Last_name(Last_name)
-        if(valid_first==True and valid_Last==True):
-            user=User(First_name,Last_name)
+        valid_email=isvalid_email(email)
+        if(valid_first==True and valid_Last==True and valid_email):
+            user=User(First_name,Last_name,email)
             print(user)
             break
 
 
 if __name__=="__main__":
     main()
+
      
